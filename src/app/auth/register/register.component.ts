@@ -10,7 +10,7 @@ export class RegisterComponent {
 
   public steps: any = [{ paso: 0, title: 'NÚMERO CELULAR' }, { paso: 1, title: 'DATOS DE CUENTA' },
   { paso: 2, title: 'FINALIZAR' }]
-  public progress: Step = this.steps[1];
+  public progress: Step = this.steps[0];
 
   constructor() { }
 
