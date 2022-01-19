@@ -1,0 +1,61 @@
+@import "./fonts.scss";
+.title{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  &__secondary{
+    color: var(--ion-color-secondary);
+  }
+  &__white{
+    color: var(--ion-color-danger-contrast)
+  }
+}
+.title-big{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  &__primary{
+    color: var(--ion-color-primary);
+  }
+}
+.title-small{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  &__secondary{
+    color: var(--ion-color-secondary);
+  }
+}
+.text{
+  font-family: 'Avenir LT Std';
+  font-size: 16px;
+  line-height: 19px;
+  &__gray{
+    color: #757575;
+  }
+  &__brow{
+    color:#212121;
+  }
+}
+
+.text-small{
+  font-family: 'Avenir LT Std';
+  font-size: 14px;
+  line-height: 17px;
+  &__gray{
+    color: #323232;
+  }
+}
+
+h1{
+ 
+  margin: 0;
+}
+
+h2{
+  
+  margin: 0;
+}

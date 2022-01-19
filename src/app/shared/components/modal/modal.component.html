@@ -1,0 +1,17 @@
+<ion-card>
+  <ion-card-header>
+    <div class="ion-text-end">
+      <img class="close" src="assets/img/close.svg" alt="" (click)="dismiss('')">
+    </div>
+    <ion-card-subtitle class="title ion-text-center" >{{header}}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content class="ion-text-center">
+    <ion-text class="text text__brow">{{body}}</ion-text>
+  </ion-card-content>
+  <ion-footer class="ion-text-center">
+    <button class="title title__secondary" (click)="dismiss(true)">
+      {{footer}}
+    </button>
+  </ion-footer>
+</ion-card>

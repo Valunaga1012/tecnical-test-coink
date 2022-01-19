@@ -1,0 +1,109 @@
+<div class="container">
+  <ion-row class="ion-margin-bottom">
+    <ion-col size="3"><img [src]="oinkImg" alt="oink"></ion-col>
+    <ion-col>
+      <span class="title title__secondary">¿CUÁLES SON TUS DATOS?</span>
+      <span class="text text__gray">Ahora necesitamos saber algunos datos tuyos</span>
+    </ion-col>
+  </ion-row>
+  <hr class="hr">
+  <form [formGroup]="infoUserForm">
+      <h2 [style.margin-top]="'24px'" class="title title__secondary">Documento de identidad</h2>
+      <div class="input-group " [style.margin-top]="'40px'">
+        <select class="select-table" name="busqueda" id="busqueda" formControlName="type_doc" required>
+          <option *ngFor="let doc of typeDoc" [ngValue]="doc">{{doc.description}}</option>
+        </select>
+        <label class="label-select" [ngClass]="{ 'invalid': validateinput('type_doc')}" for="busqueda">
+          Tipo de documento
+        </label>
+      </div>
+      <div class="input-group">
+        <input type="number" value="" id="doc" name="doc" [ngClass]="{ 'invalid': validateinput('num_doc')}"
+          formControlName="num_doc" required>
+        <label class="label" value="" [ngClass]="{ 'invalid': validateinput('num_doc')}"
+          for="doc">Número de documento
+        </label>
+        <span class="invalid-span" *ngIf="validateinput('num_doc')">
+          Este campo es requerido, ingrese un NUMERO válido.
+        </span>
+      </div>
+      <div class="input-group">
+        <input type="text" id="expe" formControlName="expedition_date" 
+        [ngClass]="{ 'invalid': validateinput('expedition_date')}" onfocus="(this.type='date')"
+        onblur="(this.type='text')" required>
+        <label class="label" [ngClass]="{ 'invalid': validateinput('expedition_date')}"
+         for="expe">Fecha de expedición del documento
+        </label>
+        <span class="invalid-span" *ngIf="validateinput('expedition_date')">
+          Este campo es requerido, ingrese una FECHA valida
+        </span>
+      </div>
+      <div class="input-group">
+        <input type="text" id="birth" formControlName="birth_date" onfocus="(this.type='date')" 
+          onblur="(this.type='text')" required>
+        <label class="label" [ngClass]="{ 'invalid': validateinput('birth_date')}" for="birth">
+          Fecha de nacimiento
+        </label>
+        <span class="invalid-span" *ngIf="validateinput('birth_date')">
+          Este campo es requerido, ingrese una FECHA válida
+        </span>
+      </div>
+      <div class="input-group" [style.margin-top]="'38px'">
+        <select class="select-table" name="busqueda" id="busqueda" formControlName="gender"
+          [ngClass]="{ 'invalid': validateinput('gender')}" required>
+          <option *ngFor="let gender of genders" [ngValue]="gender">{{gender.name}}</option>
+        </select>
+        <label class="label-select" [ngClass]="{ 'invalid': validateinput('gender')}" for="busqueda">
+          Genero
+        </label>
+      </div>
+      <h2 [style.margin]="'32px 0 15px 0'" class="title title__secondary">
+        Configura tu cuenta
+      </h2>
+      <div class="input-group">
+        <input type="email" id="email" formControlName="email"
+        [ngClass]="{ 'invalid': validateinput('email')}" required>
+        <label class="label" [ngClass]="{ 'invalid': validateinput('email')}" for="email">
+          Correo electrónico
+        </label>
+        <span class="invalid-span" *ngIf="validateinput('email')">
+          Este campo es requerido, ingrese un EMAIL válido
+        </span>
+      </div>
+      <div class="input-group">
+        <input type="email" id="conEmail" formControlName="confirmEmail"
+        [ngClass]="{'invalid': (validateinput('confirmEmail')) || (!matchingEmail(confirmEmail))}" required>
+        <label class="label" [ngClass]="{ 'invalid': validateinput('confirmEmail')||!matchingEmail(confirmEmail)}" for="conEmail">
+          Confirmar correo electrónico
+        </label>  
+        <img class="icon" *ngIf="matchingEmail(confirmEmail)" src="assets/img/Check.svg" alt="">
+        <span class="invalid-span" *ngIf="!matchingEmail(confirmEmail)">
+          Este campo no coincide con el EMAIL
+        </span>
+      </div>
+      <div class="input-group">
+        <input maxlength="4" type="{{isShow ? 'text' : 'password' }}" id="pin" formControlName="pin" [ngClass]="{ 'invalid': validateinput('pin')}"
+         required>
+        <label class="label" [ngClass]="{ 'invalid': validateinput('pin')}" for="pin">
+          PIN de seguridad
+        </label>
+        <ion-icon class="icon" (click)="isShow=!isShow" name="{{isShow ? 'eye-off': 'eye'}}"></ion-icon>    
+      </div>
+      <div class="input-group">
+        <input maxlength="4" type="{{isShowEye ? 'text' : 'password' }}" id="conPin" formControlName="confirmPin"
+         [ngClass]="{'invalid': (!matchingPin(confirmPin))}"
+         required>
+        <label class="label" [ngClass]="{ 'invalid': !matchingPin(confirmPin)}" for="conPin">
+          Confirmar PIN de seguridad
+        </label>
+        <ion-icon class="icon" (click)="isShowEye=!isShowEye" name="{{isShowEye ? 'eye-off': 'eye'}}"></ion-icon>    
+        <span class="invalid-span" *ngIf="!matchingPin(confirmPin)">
+          Este campo no coincide con el PIN
+        </span>
+      </div>
+    <div class="login-button">
+      <button class="button" [ngStyle]="{'background': infoUserForm.valid ? '#1EEA00' : '#EEEEEE' }"
+       [disabled]="infoUserForm.invalid" (click)="next(infoUserForm.value)"><h2 class="title">SIGUIENTE</h2></button>
+    </div>
+  </form>
+</div>

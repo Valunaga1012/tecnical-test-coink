@@ -1,0 +1,13 @@
+<div class="step-progress">
+  <div class="circle" [style.border-color]="color">
+    <div [style.background]="color"></div>
+  </div>
+  <hr>
+  <div class="circle"[ngStyle]="{'border-color': paso === 1 ? color : color2 }">
+    <div [ngStyle]="{'background': paso === 1 || paso === 2 ? color : '#ffff' }"></div>
+  </div>
+  <hr>
+  <div class="circle" [ngStyle]="{'border-color': paso === 2 ? color : color2 }">
+    <div [ngStyle]="{'background': paso === 2 ? color : '#ffff' }"></div>
+  </div>
+</div>

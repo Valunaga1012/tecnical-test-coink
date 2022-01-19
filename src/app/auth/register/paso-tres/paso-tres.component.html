@@ -1,0 +1,40 @@
+<div class="register-container">
+  <div class="register-info">
+    <ion-row>
+      <ion-col size="3.8"><img [src]="oinkImg" alt="oink"></ion-col>
+      <ion-col>
+        <h1 class="title title__secondary">ESTAS MUY CERCA DE SER PARTE DE COINK.</h1>
+        <h2 class="text-small text__gray">
+          Solo es necesario que leas detenidamente el contrato que se encuentra al final de esta
+          pantalla y lo aceptes.
+        </h2>
+      </ion-col>
+    </ion-row>
+  </div>
+  <hr class="hr">
+  <div class="register-content">
+    <span class="title title__secondary ion-margin-top">LO MÁS IMPORTANTE</span>
+    <div class="info">
+      <p class="text-small text-small__gray">Para la apertura del Depósito de Bajo Monto en COINK debes ser una persona natural
+        que de acuerdo con nuestra legislación vigente te encuentres en plena capacidad para
+        adquirir derechos y contraer obligaciones.</p>
+      <p class="text-small text-small__gray"> Abrirás una cuenta COINK de Bajo Monto la cual te permitirá tener un saldo hasta por 8
+        salarios mínimos en el mes y realizar débitos por el mismo valor. Si deseas sobrepasar 
+        estos límites debes solicitarnos la apertura de un Depósito Ordinario COINK Persona Natural.</p>
+      <p class="text-small text-small__gray">Solo puedes tener una cuenta COINK de Bajo Monto y podrás utilizar tu dispositivo móvil para
+        consultar tu saldo, tus movimientos, realizar tus transacciones y administrar tu cuenta.</p>
+      <p class="text-small text-small__gray">Recuerda que no necesitas saldo mínimo ni monto inicial para su apertura.</p>
+    </div>
+    <a class="title title__secondary" href="javascript:">Lee tu contrato</a>
+    <ion-row class="check">
+        <ion-checkbox mode="md" (click)="isCheck()" [(ngModel)]="check.isChecked" class="checkbox-square" type="checkbox"></ion-checkbox>
+        <h2 class="termino text ">He leído y acepto el contrato</h2>
+    </ion-row>
+  </div>
+  <div class="login-button">
+    <button class="button" (click)="next()" [ngStyle]="{'background': check.isChecked ? '#1EEA00' : '#EEEEEE' }"
+     [disabled]="!check.isChecked">
+      <h2 class="title title__secondary">ACEPTAR</h2>
+    </button>
+  </div>
+</div>

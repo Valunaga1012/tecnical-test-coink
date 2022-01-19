@@ -1,0 +1,41 @@
+.register-container{
+   .register-info{
+       display: flex;
+       padding: 25px;
+       h1{
+            margin-bottom: 6px;
+        }
+   }
+    .register-content{
+        padding: 25px;
+        
+    }
+    .info{
+        margin-bottom: 35px;
+    }
+    .check{
+        margin-top: 16px;
+    }
+    ion-checkbox{
+        --checkmark-color: white;
+        margin-right: 10px;
+    }
+    .termino{
+        font-family: "Avenir LT Std";
+        font-size: 16px;
+        color: var(--ion-color-secondary);
+    }
+    .login-button{
+        text-align: center;
+        bottom: 5%;
+        button{
+            width: 326px;
+            height: 50px;
+            border-radius: 40px;
+            margin-bottom: 15px;
+        }
+        .button{
+            background: var(--ion-color-primary);
+        }
+    }
+}

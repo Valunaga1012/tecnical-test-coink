@@ -1,0 +1,8 @@
+<svg id="Componente_5_2" data-name="Componente 5 – 2" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <circle id="Elipse_792" data-name="Elipse 792" cx="10" cy="10" r="10" fill="#f44336"/>
+  <g id="close-cross" transform="translate(5 5)">
+    <g id="Plus_close" data-name="Plus / close">
+      <path id="Trazado_10290" data-name="Trazado 10290" d="M6.693,5,9.649,2.045A1.2,1.2,0,0,0,7.956.352L5,3.308,2.044.352A1.2,1.2,0,0,0,.351,2.045L3.307,5,.351,7.957A1.2,1.2,0,0,0,2.044,9.65L5,6.694,7.956,9.65A1.2,1.2,0,0,0,9.649,7.957Z" transform="translate(0 -0.001)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

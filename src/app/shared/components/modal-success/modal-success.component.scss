@@ -1,0 +1,21 @@
+ion-card{
+    text-align: center;
+    margin:0px;
+    height: 100%;
+    ion-card-header{
+        padding-top: 48px;
+        padding-bottom: 0px;
+    }
+    ion-card-subtitle{
+        padding-top: 30px;
+        padding-bottom: 10px;
+        margin: 0px;
+        color: var(--ion-color-secondary);
+    }
+    ion-footer{
+        padding: 0 20px 0 20px;
+    }
+    ion-button{
+        width: 100%;
+    }
+}

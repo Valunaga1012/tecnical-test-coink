@@ -1,0 +1,7 @@
+<app-header (back)="stepProgress($event)" [data]="progress"></app-header>
+<app-step-progress [paso]="progress.paso"></app-step-progress>
+<ion-content>
+  <app-paso-uno (paso)="stepProgress($event)" *ngIf="progress.paso==0"></app-paso-uno>
+  <app-paso-dos (paso)="stepProgress($event)" *ngIf="progress.paso==1"></app-paso-dos>
+  <app-paso-tres (paso)="stepProgress($event)" *ngIf="progress.paso==2"></app-paso-tres>
+</ion-content>
