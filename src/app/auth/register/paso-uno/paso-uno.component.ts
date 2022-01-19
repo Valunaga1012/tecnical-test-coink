@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController, PopoverController } from '@ionic/angular';
 import { FIRST_NUMBER, KEY_ENCRYPT_DESENCRYPT } from 'src/app/core/constants/constants';
@@ -11,7 +11,7 @@ import { ModalComponent } from 'src/app/shared/components/modal/modal.component'
 @Component({
   selector: 'app-paso-uno',
   templateUrl: './paso-uno.component.html',
-  styleUrls: ['./paso-uno.component.scss'],
+  styleUrls: ['./paso-uno.component.scss']
 })
 export class PasoUnoComponent implements OnInit {
 
@@ -27,6 +27,7 @@ export class PasoUnoComponent implements OnInit {
   private error: any;
   private numbers: string = '';
   private codeEncrypt: string = '' ;
+  public isKeyboardHide: boolean = true;
 
   constructor( 
     private api:ApiService, 
@@ -37,6 +38,12 @@ export class PasoUnoComponent implements OnInit {
     private localStorage: LocalStorageService)
     {}
 
+//    @ViewChild('input') myInput
+
+//    ionViewLoaded() {
+//       this.myInput.setFocus();
+
+//  }
   ngOnInit(): void {
     this.buildForm()
   }
@@ -80,7 +87,6 @@ export class PasoUnoComponent implements OnInit {
     if(!this.istex){
       this.numbers = this.numbers + number;
       this.codeEncrypt = this.codeEncrypt + 'X';
-      
       this.registerForm.get('verification_id').markAsTouched();
       this.registerForm.get('verification_id').setValue(this.codeEncrypt);
       this.validator();
