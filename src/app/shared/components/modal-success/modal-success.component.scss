@@ -14,8 +14,12 @@ ion-card{
     }
     ion-footer{
         padding: 0 20px 0 20px;
+        background: transparent;
     }
     ion-button{
         width: 100%;
+    }
+    .footer-md::before {
+        background-image: none !important; 
     }
 }

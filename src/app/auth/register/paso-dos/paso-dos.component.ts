@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FOUR_CHARACTERS_REGEX } from 'src/app/core/constants/constants';
+import { min } from 'rxjs/operators';
+import { FOUR_CHARACTERS_REGEX, HAS_NUMBER } from 'src/app/core/constants/constants';
 import { Doc } from 'src/app/core/models/doc.interface';
 import { Gender } from 'src/app/core/models/gender.interface';
 import { ApiService } from 'src/app/core/services/api.service';
@@ -35,14 +36,14 @@ export class PasoDosComponent implements OnInit {
   private buildForm(): void {
     this.infoUserForm = this.formBuilder.group({
       type_doc:  ['', [Validators.required]],
-      num_doc:  ['', [Validators.required]],
+      num_doc:  ['', [Validators.required, Validators.min(100000)]],
       expedition_date: ['', [Validators.required]],
       birth_date:  ['', [Validators.required]],
       gender:  ['', [Validators.required]],
       email:  ['', [Validators.required, Validators.email]],
       confirmEmail: ['', [Validators.required]],
-      pin:  ['', [Validators.required, Validators.pattern(FOUR_CHARACTERS_REGEX)]],
-      confirmPin: ['',[Validators.required]]
+      pin:  ['', [Validators.required, Validators.maxLength(4), Validators.minLength(4), Validators.pattern(FOUR_CHARACTERS_REGEX)]],
+      confirmPin: ['',[Validators.required, Validators.maxLength(4), Validators.minLength(4)]]
 		});
   }
 

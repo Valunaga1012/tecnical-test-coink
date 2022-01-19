@@ -8,8 +8,8 @@
   </ion-row>    
   <form [formGroup]="registerForm" >
     <ion-row class="padding">
-      <input #input *ngIf="!istex" type="text" placeholder="XXXX" class="input-color" (change)="pruebaKey()" formControlName="verification_id" required>
-      <input *ngIf="istex" type="number"  [ngClass]="{ 'invalid': validateinput('phone_number')}" 
+      <input [readonly]="true" maxlength="4" *ngIf="!istex" type="text" placeholder="XXXX" class="input-color" (change)="pruebaKey()" formControlName="verification_id" required>
+      <input [readonly]="true" *ngIf="istex" type="number"  [ngClass]="{ 'invalid': validateinput('phone_number')}" 
       placeholder="(XXX - XXXXXX)" (change)="pruebaKey()" 
       formControlName="phone_number">
       <span *ngIf="validateinput('phone_number')" [ngClass]="{ 'inval-span': validateinput('phone_number')}">

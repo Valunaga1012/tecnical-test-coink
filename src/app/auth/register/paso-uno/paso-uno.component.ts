@@ -7,7 +7,6 @@ import { ApiService } from 'src/app/core/services/api.service';
 import { EncryptService } from 'src/app/core/services/encrypt.service';
 import { LocalStorageService } from 'src/app/core/services/local-storage.service';
 import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
-
 @Component({
   selector: 'app-paso-uno',
   templateUrl: './paso-uno.component.html',
@@ -38,12 +37,6 @@ export class PasoUnoComponent implements OnInit {
     private localStorage: LocalStorageService)
     {}
 
-//    @ViewChild('input') myInput
-
-//    ionViewLoaded() {
-//       this.myInput.setFocus();
-
-//  }
   ngOnInit(): void {
     this.buildForm()
   }
@@ -83,13 +76,23 @@ export class PasoUnoComponent implements OnInit {
     this.pruebaKey(number)
   }
 
-  public pruebaKey(number?): void {  
+  resetForms(){
+    this.registerForm.get('verification_id').setValue('');
+    this.numbers = '';
+    this.codeEncrypt = '';
+  }
+
+  public pruebaKey(number?): void { 
     if(!this.istex){
+      if(number !='')
+        this.codeEncrypt = this.codeEncrypt + 'X';
       this.numbers = this.numbers + number;
-      this.codeEncrypt = this.codeEncrypt + 'X';
       this.registerForm.get('verification_id').markAsTouched();
       this.registerForm.get('verification_id').setValue(this.codeEncrypt);
       this.validator();
+      console.log(this.numbers);
+      console.log(this.codeEncrypt);
+      
     }else{
       this.numbers = this.numbers + number;
       this.registerForm.get('phone_number').markAsTouched();
@@ -110,6 +113,8 @@ export class PasoUnoComponent implements OnInit {
   }
 
   public borrar() : void {
+    if(!this.istex)
+      this.codeEncrypt = this.codeEncrypt.slice(0,-1) 
     this.numbers = this.numbers.slice(0,-1);
     this.pruebaKey('')
   }
@@ -140,8 +145,7 @@ export class PasoUnoComponent implements OnInit {
       });
     await popover.present();
     const { data } = await popover.onDidDismiss();
-    this.codeEncrypt = ''
-    this.numbers = ''
+    this.resetForms();
     if(data.data)
       this.sendCode(this.createData(this.phoneNumber));
   }

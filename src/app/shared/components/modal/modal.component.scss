@@ -11,5 +11,8 @@ ion-card{
     button{
         background: transparent;
     }
+    .footer-md::before {
+        background-image: none !important; 
+    }
 }
 
