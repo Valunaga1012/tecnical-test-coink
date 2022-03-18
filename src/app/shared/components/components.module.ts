@@ -5,6 +5,8 @@ import { HeaderComponent } from './header/header.component';
 import { IonicModule } from '@ionic/angular';
 import { ModalComponent } from './modal/modal.component';
 import { ModalSuccessComponent } from './modal-success/modal-success.component';
+import { PadNumberComponent } from './pad-number/pad-number.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,12 +15,14 @@ import { ModalSuccessComponent } from './modal-success/modal-success.component';
     StepProgressComponent, 
     HeaderComponent,
     ModalComponent,
-    ModalSuccessComponent
+    ModalSuccessComponent,
+    PadNumberComponent
   ],
   imports: [
     CommonModule,
-    IonicModule
+    IonicModule,
+    FormsModule
   ],
-  exports: [StepProgressComponent, HeaderComponent,ModalSuccessComponent]
+  exports: [StepProgressComponent, HeaderComponent,ModalSuccessComponent,PadNumberComponent]
 })
 export class ComponentsModule { }

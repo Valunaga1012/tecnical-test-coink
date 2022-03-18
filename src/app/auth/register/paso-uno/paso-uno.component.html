@@ -1,38 +1,36 @@
 <div class="container">
   <ion-row class="padding info">
     <ion-col size="3.5"><img [src]="imges.oink" alt="oink"></ion-col>
-    <ion-col><p class="text text__gray" [innerHTML]="istex ? texts.text : texts.text1 + this.phoneNumber"></p></ion-col>
-  </ion-row>  
+    <ion-col>
+      <p class="text text__gray" [innerHTML]="istex ? texts.text : texts.text1 + this.phoneNumber"></p>
+    </ion-col>
+  </ion-row>
   <ion-row class="padding">
     <hr class="hr">
-  </ion-row>    
-  <form [formGroup]="registerForm" >
+  </ion-row>
+  <form [formGroup]="registerForm">
     <ion-row class="padding">
-      <input [readonly]="true" maxlength="4" *ngIf="!istex" type="text" placeholder="XXXX" class="input-color" (change)="pruebaKey()" formControlName="verification_id" required>
-      <input [readonly]="true" *ngIf="istex" type="number"  [ngClass]="{ 'invalid': validateinput('phone_number')}" 
-      placeholder="(XXX - XXXXXX)" (change)="pruebaKey()" 
-      formControlName="phone_number">
-      <span *ngIf="validateinput('phone_number')" [ngClass]="{ 'inval-span': validateinput('phone_number')}">
-        Ingrese un numero valido ej: 3155555555
+      <input *ngIf="istex" 
+       type="number" 
+       class="input-color" 
+       placeholder="(XXX - XXXXXX)" 
+       formControlName="phone_number"
+       (click)="getFormName($event)"  
+       [class.invalid]="checkErrors('phone_number')">
+       
+      <input *ngIf="!istex" 
+       type="number"
+       class="input-color" 
+       placeholder="XXXX" 
+       formControlName="verification_id"
+       (click)="getFormName($event)" 
+       [class.invalid]="checkErrors('verification_id')">
+
+      <span *ngIf="checkErrors('verification_id')" [class.inval-span]="checkErrors('verification_id')">
+        {{getErrorMessage("verification_id")}}
       </span>
     </ion-row>
   </form>
-  <ion-grid class="key-board">
-    <ion-row >
-      <ion-col *ngFor="let number of numberPad" size="4" class=" size-number" (click)="getNumber(number.number)">
-        {{number.number}}
-      </ion-col>
-      <ion-col size="4" (click)="borrar()" class=" ion-align-self-end size-number">
-        <img [src]="imges.back" alt="">
-      </ion-col>
-      <ion-col size="4" class=" size-number" (click)="getNumber('0')">
-        0
-      </ion-col>
-      <ion-col size="4" (click)="next(registerForm)" *ngIf="istex" class="size-number">
-        <div [ngStyle]="{'background': registerForm.valid && registerForm.get('phone_number').value.length ==10 ? '#1EEA00' : '#D3D3D3' }">
-          <img [src]="imges.check" alt="">
-        </div>
-      </ion-col>
-    </ion-row>   
-  </ion-grid>
+  <app-pad-number [isValid]="validateNumber()" [form]="registerForm" [formName]="formName" (next)="next(registerForm)">
+  </app-pad-number>
 </div>

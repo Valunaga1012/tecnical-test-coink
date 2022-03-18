@@ -8,10 +8,10 @@ import { ApiService } from 'src/app/core/services/api.service';
 })
 export class LoginComponent implements OnInit {
   logo:string = "assets/img/logo.png"
-  
   constructor() { }
 
   ngOnInit() {
+    
     
   }
 

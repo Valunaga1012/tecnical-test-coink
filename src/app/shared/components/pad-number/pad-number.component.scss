@@ -1,0 +1,22 @@
+.key-board{
+    position: fixed;
+    width: 100%;
+    bottom: 10px;
+}
+img{
+    padding: 9px;
+}
+.size-number{
+    text-align: center;
+    font-size: 45px;
+    color: var(--ion-color-secondary);
+    padding: 10px;
+    div{
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        margin: 0 auto;
+        text-align: center;
+        padding: 5px;
+    }
+}

@@ -1,0 +1,20 @@
+<ion-content>
+  <ion-grid class="key-board">
+    <ion-row >
+      <ion-col *ngFor="let number of numberPad" size="4" class=" size-number" (click)="getNumber(number.number)">
+        {{number.number}}
+      </ion-col>
+      <ion-col size="4" (click)="borrar()" class=" ion-align-self-end size-number">
+        <img [src]="imgBack" alt="back">
+      </ion-col>
+      <ion-col size="4" class=" size-number" (click)="getNumber('0')">
+        0
+      </ion-col>
+      <ion-col size="4" (click)="sendCode(form)" *ngIf="istex" class="size-number">
+        <div [ngStyle]="{'background': isValid ? '#1EEA00' : '#D3D3D3' }">
+          <img [src]="imgCheck" alt="check">
+        </div>
+      </ion-col>
+    </ion-row>   
+  </ion-grid>
+</ion-content>

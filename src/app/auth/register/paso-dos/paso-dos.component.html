@@ -11,7 +11,7 @@
       <h2 [style.margin-top]="'24px'" class="title title__secondary">Documento de identidad</h2>
       <div class="input-group " [style.margin-top]="'40px'">
         <select class="select-table" name="busqueda" id="busqueda" formControlName="type_doc" required>
-          <option *ngFor="let doc of typeDoc" [ngValue]="doc">{{doc.description}}</option>
+          <option *ngFor="let doc of typeDoc" [ngValue]="doc.description">{{doc.description}}</option>
         </select>
         <label class="label-select" [ngClass]="{ 'invalid': validateinput('type_doc')}" for="busqueda">
           Tipo de documento
@@ -51,7 +51,7 @@
       <div class="input-group" [style.margin-top]="'38px'">
         <select class="select-table" name="busqueda" id="busqueda" formControlName="gender"
           [ngClass]="{ 'invalid': validateinput('gender')}" required>
-          <option *ngFor="let gender of genders" [ngValue]="gender">{{gender.name}}</option>
+          <option *ngFor="let gender of genders" [ngValue]="gender.name">{{gender.name}}</option>
         </select>
         <label class="label-select" [ngClass]="{ 'invalid': validateinput('gender')}" for="busqueda">
           Genero
@@ -101,6 +101,7 @@
           Este campo no coincide con el PIN
         </span>
       </div>
+     
     <div class="login-button">
       <button class="button" [ngStyle]="{'background': infoUserForm.valid ? '#1EEA00' : '#EEEEEE' }"
        [disabled]="infoUserForm.invalid" (click)="next(infoUserForm.value)"><h2 class="title">SIGUIENTE</h2></button>
